@@ -1,0 +1,141 @@
+AWS Elastic Load Balancing: Overview And Types
+
+May 7, 2021 by Bhanvendra Singh Gaur Leave a Comment
+
+ 400 views
+In this post, I will be covering  Amazon Elastic Load Balancing (ELB). Its overview, features, and types.
+
+Elastic Load Balancing (ELB) is a load-balancing service for AWS deployments. It automatically distributes incoming application traffic and scales resources to fulfill high traffic demands.
+
+What are Load Balancers and how do they work?
+Load balancers detect the health of back-end resources and do not send traffic to servers that are not able to fulfill requests. Load balancing is the process of redistribution of workload in a distributed ensuring no computing machine is overloaded, under-loaded, or idle. It tries to speed up different parameters like response time, execution time, system stability, etc. thereby improving the performance of the cloud.  ng situation. The survey papers based on load balancing could not provide a proper systematic classification of methods and techniques.
+Factors responsible for load unbalancing problem and also provided some methods that can be used:
+
+Identify the factors that cause load unbalancing problems in cloud computing.
+Provide a systematic overview of the existing approaches that are used in the load balancing process and the way in which these approaches have been used in cloud technology.
+A physical device, a virtualized instance running on specialized hardware.
+Incorporated into application delivery controllers (ADCs) designed to more broadly improve the performance and security of web and microservices-based applications, regardless of their hosting.
+System Design — Load Balancing. Concepts about load balancers and… | by Larry | Peng Yang | Computer Science Fundamentals | Medium
+Read More: About Amazon DynamoDB. Click here
+
+Elastic Load Balancing in AWS
+Distributes incoming application traffic across multiple targets, such as EC2 instances, containers (ECS), Lambda functions, and IP addresses in multiple Availability Zones(AZs).
+Distributes Client traffic across servers.
+Improves the performance of applications.
+It Accepts incoming traffic from clients and routes requests to its registered targets.
+Monitors the condition of its registered targets and routes traffic only to healthy targets.
+Enable deletion protection to stop your load balancer from being deleted accidentally. Disabled by default.
+Deleting ELB won’t delete the instances registered to it.
+Cross Zone Load Balancing – If enabled, each load balancer node automatically distributes traffic across the registered targets in all enabled AZs.
+Supports SSL Offloadirig which is a feature that allows the AWS Elastic Load Balancer to bypass the SSL termination by removing the SSL-based encryption from the incoming traffic.
+Click here to read about a good example of how the DevOps principles are used in practice is AWS CloudFormation.
+
+AWS load balancer working
+Also Check: Our blog post on AWS for testers. Click here
+
+Common Features
+High availability
+The most common service that relies on Elastic Load Balancer is Amazon’s EC2 Instances, as Elastic Load Balancer performs a health checkup to confirm an instance continues to be running before sending traffic thereto. A developer can integrate Amazon Route 53 and Domain name system (DNS) failover to further boost application resiliency.
+Automatic scaling
+A developer can use the AWS Auto Scaling feature to ensure he or she has enough EC2 instances running behind an ELB. The developer sets Auto Scaling conditions, and when a condition is met, a brand new EC2 instance can spin up to satisfy the specified minimum. A developer also can set a condition to spin up new EC2 instances to scale back latency.
+Security
+AWS Elastic Load Balancer supports applications within an Amazon VPC for stronger network security. An IT team can specify whether it wants an internet-facing or internal load balancer. The latter option enables a developer to route traffic through an ELB using private IP addresses.
+Also read: All you need to know about AWS Free Tier Account Services
+
+Types Of AWS Elastic Load Balancers
+In AWS we have 4 types of Load Balancer
+
+Classic Load Balancer
+Application Load Balancer
+Network Load Balancer
+Gateway Load Balancer
+LoadBalancers_Diagram
+
+Also Check: Our blog post on AWS Security. Click here
+
+Classic Load Balancer
+The Load Balancer which balances the traffic across multiple instances in multiple availability zones is called a Classic Load Balancer.
+It supports both EC2 Classic EC2-VPC and Increases the availability of your application by sending traffic to healthy Instance.
+Supports HTTP, HTTPS, TCP, and SSL listeners and supports sticky sessions using application-generated cookies.
+To make ensure that your registered instances are able to handle the request load In each AZ, keep approximately the same number of instances In each AZ registered with the load balancer.
+classic load balancer
+Limitations:
+
+Limitations
+
+Also read All you need to know about AWS Identity And Access Management.
+
+Network Load balancer
+Network Load Balancer handles sudden and violates traffic across the EC2 Instances in order to avoid any latency.
+Connection baseload Balancing and it supports TCP protocol.
+Ability to handle volatile workloads and scale to millions of requests per second.
+Support for static IP addresses for the load balancer. or assign one Elastic IP address per subnet enabled for the load balancer.
+Cross-zone load balancing is disabled by default
+If you specify targets using an instance ID, the source IP addresses of the clients are preserved and provided to your applications. If you specify targets by IP address, the source IP addresses are the private IP addresses of the load balancer nodes.
+Network Load Balancers support connections from clients over inter-region VPC peering. AWS managed VPN, and third-party VPN solutions.
+
+Also Read: Our previous blog post on AWS Cloud Certification. Click here
+
+Limitations:
+
+Limitation
+
+Read More: About AWS Serverless Application Model. Click here
+
+Application Load balancer
+The Load Balancer that distributes the traffic to appropriate target groups on the basis of content is called Application Load Balancer.
+New feature-rich, layer 7 load balancing platform.
+Supports web sockets, HTTP, HTTPS, and microservices and container-based applications, including deep integration with EC2 container service.
+Support for path-based and host-based routing. Also, provide routing requests to multiple applications on a single EC2 instance.
+Cross-Zone load balancing is always enabled and you can also specify Lambda functions are targeted to serve HTTP(S) requests.
+Supports load balancer-generated cookies only for sticky sessions.
+Application load balancer
+Also Read: How to Configure MFA in AWS. Click here
+
+Limitations:
+
+limitations
+Also Check: Our previous blog post on Blue Green Deployment. Click here
+
+Gateway Load Balancer
+It makes it easy to deploy, scale, and manage your third-party virtual appliances.
+Provide you one gateway for distributing traffic across multiple virtual appliances, while scaling them up, or down, based on demand.
+It eliminates potential points of failure in your network and increases availability.
+Users can find, test, and buy virtual appliances from third-party vendors directly in AWS Marketplace.
+This integrated experience streamlines the deployment process, so users can see value from your virtual appliances more quickly—whether you want to work with the same vendors you do today, or trying something new.
+
+Limitations:
+
+Limits
+
+Also Read: Our blog post on Amazon API Gateway. Click here
+
+Difference Between Application, Classic, Gateway, And Network Load Balancer
+LoadBalancer_Table
+
+Check Out: Cloudtrail vs Cloudwatch, to know the major differences between them.
+
+ELB pricing
+Application Load Balancer
+You will be charged for each hour or partial hour that an Application Load Balancer is running and the number of Load Balancer Capacity Units (LCU) used per hour.
+Network Load Balancer
+You will be charged for each hour or partial hour that a Network Load Balancer is running and the number of Network Load Balancer Capacity Units (NLCU) used by Network Load Balancer per hour.
+Gateway Load Balancer
+Consumers are charged for each hour or partial hour that a Gateway Load Balancer is running and the number of Gateway Load Balancer Capacity Units (GLCU) used by Gateway Load Balancer per hour. Gateway Load Balancer uses Gateway Load Balancer Endpoint (GWLBE), a new type of VPC Endpoint powered by AWS PrivateLink technology that simplifies how applications can securely exchange traffic with GWLB across VPC boundaries.
+Classic Load Balancer
+Users are charged for each hour or partial hour that a Classic Load Balancer is running and for each GB of data transferred through your load balancer.
+Also Check: Our previous blog post on AWS Command Line Interface. Click here
+
+Conclusion 
+Elastic Load Balancing is a proven mechanism of distributing application and web traffic requests across multiple targets or instances. AWS Elastic Load Balancer allows you to scale your varying workloads automatically. We have also seen the three types of load balancers used in ELB and their key features.
+
+Elastic Load Balancing FAQs
+Q1: Is there an SLA for load balancers?
+A: Yes, Elastic Load Balancing guarantees monthly availability of at least 99.99% for your load balancers (Classic, Application, Gateway or Network).
+
+Q2: Can users privately access Elastic Load Balancing APIs from my Amazon Virtual Private Cloud (VPC) without using a public IP address? A: Yes, users can privately access Elastic Load Balancing APIs from their Amazon Virtual Private Cloud (VPC) by creating VPC endpoints. With VPC endpoints, the routing between the VPC and Elastic Load Balancing APIs is managed by the AWS network without the need for an Internet gateway, NAT gateway, or VPN connection.
+
+Also Read: Our blog post on AWS Access Key and Secret Key. Click here
+
+Q:3 How can users decide which load balancer to select for their application?
+A: Elastic Load Balancing supports four types of load balancers. You can select the appropriate load balancer based on your application requirements. If you need to load balance HTTP requests, we advise you to use Application Load Balancer. For network protocols (layer4 – TCP, UDP) load balancing, and for extreme performance and low latency applications we advise using Network Load Balancer. Users should use Gateway Load Balancer when deploying inline virtual appliances where network traffic is not destined for the Gateway Load Balancer itself. If customers application is built within the EC2 Classic network then users can use Classic Load Balancer.

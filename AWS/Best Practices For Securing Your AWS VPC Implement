@@ -1,0 +1,23 @@
+Best Practices For Securing Your AWS VPC Implementation
+Running a machine with mission-critical workloads requires multiple layers of security. Amazon Virtual Private Cloud can be secured like your on-premises data center by following some of these useful tips:
+
+Amazon Web Services marketplace offers you a web application firewall, a firewall virtual appliance, and a few other tools which you can use to secure your Amazon VPC.
+To secure your protocols from unauthorized access you can configure intrusion detection systems and intrusion prevention virtual appliances.
+With the help of Configure Privileged Identity access management, you can audit and monitor Administrator access to your VPC.
+For transferring information securely between Amazon VPC among diverse regions or Amazon VPC to an on-premises data center, you can easily configure a Site-to-Site VPN.
+Another option to transfer information securely is to use AWS Transfer for Secure File Transfer Protocol (AWS SFTP). With AWS SFTP, you use VPC endpoints and avoid using public IP addresses or going through the internet. In addition, VPC endpoints for AWS SFTP leverage security functionality via AWS private link, which provides private connections between your VPCs and AWS services.
+AWS VPC Pricing
+Amazon VPC Traffic Mirroring Pricing
+
+If you choose to enable traffic mirroring on Elastic Network Interface (ENI) of Amazon EC2 instances, you will be charged hourly for each ENI that is enabled with traffic mirroring. If you no longer wish to be charged for traffic mirroring, simply disable traffic mirroring on EC2 instance ENIs using the AWS Management Console, command-line interface, or API. The hourly price per ENI is : $0.015
+
+NAT Gateway Pricing
+
+NAT Gateway Hourly Charge: NAT Gateway is charged on an hourly basis. For this region, the rate is $0.045 per hour.
+NAT Gateway Data Processing Charge: 1 GB of data went through NAT gateway. The NAT Gateway Data Processing charge is applied and will result in a charge of $0.045.
+Data Transfer Charge: This is the standard EC2 Data Transfer charge. 1 GB of data was transferred from the EC2 instance to S3 via the NAT gateway. There was no charge for the data transfer from the EC2 instance to S3 as it is Data Transfer Out to Amazon EC2 to S3 in the same region.
+AWS VPN pricing
+
+If you create an AWS Site-to-Site VPN connection to your Amazon VPC, you are charged for each VPN connection-hour i.e. $0.05 per Site-to-Site VPN connection per hour
+
+AWS provides a number of efficient, secure connectivity options to help you get the most out of AWS when integrating your remote networks with Amazon VPC. AWS Virtual Private Cloud enables you to launch AWS resources into a virtual network that you’ve defined. This virtual network closely resembles a traditional network that you would operate in your own data center, with the benefits of using the scalable infrastructure of AWS.
